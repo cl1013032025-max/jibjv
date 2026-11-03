@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080B1A" />
+  <meta name="description" content="Animotion Studio es un estudio creativo especializado en animación 2D, 3D, diseño de personajes, motion graphics y efectos visuales. Creamos mundos extraordinarios que cobran vida." />
+  <meta name="author" content="Animotion Studio" />
+  <meta property="og:title" content="Animotion Studio — El arte cobra vida" />
+  <meta property="og:description" content="Descubre un universo donde la imaginación se transforma en movimiento." />
+  <meta property="og:type" content="website" />
+  <title>Animotion Studio — El arte cobra vida</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========================= CARGA INICIAL ========================= -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__glow"></div>
+    <div class="preloader__inner">
+      <div class="preloader__mark">
+        <svg viewBox="0 0 52 52" aria-hidden="true">
+          <defs>
+            <linearGradient id="preloader-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#00FFFF" />
+              <stop offset=".5" stop-color="#00BFFF" />
+              <stop offset="1" stop-color="#BF00FF" />
+            </linearGradient>
+          </defs>
+          <path d="M26 3 49 45H38L26 23 14 45H3L26 3Z" fill="url(#preloader-grad)" />
+          <circle cx="26" cy="36" r="4.5" fill="none" stroke="url(#preloader-grad)" stroke-width="2" />
+        </svg>
+      </div>
+      <p class="preloader__brand">ANIMOTION <span>STUDIO</span></p>
+      <div class="preloader__bar"><span></span></div>
+      <p class="preloader__status">CREANDO MUNDOS<span class="preloader__dots"></span></p>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Cursor personalizado (solo escritorio) -->
+  <div class="cursor cursor--dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor cursor--ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Fondo animado global -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-aurora bg-aurora--one" aria-hidden="true"></div>
+  <div class="bg-aurora bg-aurora--two" aria-hidden="true"></div>
+
+  <!-- ========================= HEADER ========================= -->
+  <header class="site-header" id="site-header">
+    <div class="container header__inner">
+      <a class="brand" href="#inicio">
+        <svg class="brand__mark" viewBox="0 0 52 52" aria-hidden="true">
+          <defs>
+            <linearGradient id="brand-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#00FFFF" />
+              <stop offset=".52" stop-color="#00BFFF" />
+              <stop offset="1" stop-color="#BF00FF" />
+            </linearGradient>
+          </defs>
+          <path d="M26 3 49 45H38L26 23 14 45H3L26 3Z" fill="url(#brand-grad)" />
+          <circle cx="26" cy="36" r="4.5" fill="none" stroke="url(#brand-grad)" stroke-width="2" />
+          <ellipse class="brand__orbit" cx="26" cy="26" rx="23" ry="8" fill="none" stroke="url(#brand-grad)" stroke-width="1" opacity=".5" />
+        </svg>
+        <span class="brand__text">
+          <strong>ANIMOTION</strong>
+          <small>STUDIO</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <a class="main-nav__link is-active" href="#inicio">Inicio</a>
+        <a class="main-nav__link" href="#nosotros">Nosotros</a>
+        <a class="main-nav__link" href="#servicios">Servicios</a>
+        <a class="main-nav__link" href="#galeria">Galería</a>
+        <a class="main-nav__link" href="#videos">Videos</a>
+        <a class="main-nav__link" href="#portafolio">Portafolio</a>
+        <a class="main-nav__link" href="#blog">Blog</a>
+        <a class="main-nav__link" href="#contacto">Contacto</a>
+      </nav>
+
+      <a class="btn btn--header" href="#contacto">
+        Hablemos
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú de navegación">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="menu-backdrop" id="menu-backdrop" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <!-- ========================= HERO / INICIO ========================= -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--one" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--two" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow" data-reveal data-delay="0">
+            <span class="eyebrow__pulse"></span>
+            Estudio de animación &amp; VFX
+            <span class="eyebrow__divider"></span>
+            <span class="eyebrow__meta">EST. 2014</span>
+          </p>
+
+          <h1 class="hero__title" id="hero-title" data-reveal data-delay="80">
+            <span class="hero__title-line">EL ARTE</span>
+            <span class="hero__title-line text-gradient">COBRA VIDA</span>
+          </h1>
+
+          <p class="hero__subtitle" data-reveal data-delay="160">
+            Descubre un universo donde la imaginación se transforma en movimiento.
+            Creamos personajes, mundos y experiencias que se quedan contigo.
+          </p>
+
+          <div class="hero__actions" data-reveal data-delay="240">
+            <a class="btn btn--primary" href="#galeria">
+              Explorar
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6" /></svg>
+            </a>
+            <a class="btn btn--ghost" href="#portafolio">
+              <span class="btn__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z" /></svg></span>
+              Ver proyectos
+            </a>
+          </div>
+
+          <div class="hero__footer" data-reveal data-delay="320">
+            <dl class="hero__stats">
+              <div class="hero-stat">
+                <dt>Años creando</dt>
+                <dd><span data-count="12">0</span><sup>+</sup></dd>
+              </div>
+              <div class="hero-stat">
+                <dt>Proyectos</dt>
+                <dd><span data-count="240">0</span><sup>+</sup></dd>
+              </div>
+              <div class="hero-stat">
+                <dt>Premios</dt>
+                <dd><span data-count="18">0</span><sup>+</sup></dd>
+              </div>
+            </dl>
+            <a class="scroll-cue" href="#nosotros" aria-label="Desliza para descubrir más">
+              <span class="scroll-cue__line"></span>
+              <span>Desliza para descubrir</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__visual" data-reveal data-delay="180">
+          <div class="hero-stage" id="hero-stage">
+            <div class="hero-orbit hero-orbit--one" aria-hidden="true"></div>
+            <div class="hero-orbit hero-orbit--two" aria-hidden="true"></div>
+
+            <div class="hero-card">
+              <div class="hero-card__inner">
+                <img src="assets/animotion/hero-main.jpg" alt="Render 3D abstracto en tonos violeta, azul y cian" width="1100" height="1300" fetchpriority="high" decoding="async" />
+                <div class="hero-card__tint" aria-hidden="true"></div>
+                <div class="hero-card__hud">
+                  <span class="hud-tag"><i></i> RENDER_042</span>
+                  <span class="hud-tag">4K / 60FPS</span>
+                </div>
+                <button class="hero-play" type="button" data-video="aqz-KE-bpKQ" data-video-title="Big Buck Bunny — Showreel" data-video-meta="Blender Open Movie · Animación 3D" aria-label="Reproducir showreel de Animotion Studio">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5-9-5.5Z" /></svg>
+                  <span class="hero-play__ring" aria-hidden="true"></span>
+                </button>
+                <div class="hero-card__caption">
+                  <div>
+                    <span class="hud-overline">PROYECTO DESTACADO</span>
+                    <strong>NEON BLOOM</strong>
+                  </div>
+                  <span class="hud-coord">35° 41' N</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="float-panel float-panel--fps">
+              <span class="float-panel__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 11-13h-7l1-7Z" /></svg></span>
+              <div><strong>60 FPS</strong><small>Fluidez total</small></div>
+            </div>
+
+            <div class="float-panel float-panel--mini">
+              <img src="assets/animotion/hero-float.jpg" alt="Artista explorando un entorno de realidad virtual" width="520" height="640" loading="lazy" decoding="async" />
+              <div>
+                <span class="float-panel__overline">STORYWORLD</span>
+                <strong>Realidad expandida</strong>
+                <small>VR / 3D EXPERIENCE</small>
+              </div>
+            </div>
+
+            <div class="float-panel float-panel--tag">
+              <span class="float-panel__dot"></span>
+              <span>DISPONIBLES PARA NUEVOS PROYECTOS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= MARQUEE ========================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span>ANIMACIÓN 2D</span><i>✦</i><span>ANIMACIÓN 3D</span><i>✦</i><span>DISEÑO DE PERSONAJES</span><i>✦</i><span>MOTION GRAPHICS</span><i>✦</i><span>VFX</span><i>✦</i><span>ILUSTRACIÓN DIGITAL</span><i>✦</i>
+        </div>
+        <div class="marquee__group">
+          <span>ANIMACIÓN 2D</span><i>✦</i><span>ANIMACIÓN 3D</span><i>✦</i><span>DISEÑO DE PERSONAJES</span><i>✦</i><span>MOTION GRAPHICS</span><i>✦</i><span>VFX</span><i>✦</i><span>ILUSTRACIÓN DIGITAL</span><i>✦</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================= NOSOTROS ========================= -->
+    <section class="section about" id="nosotros" aria-labelledby="about-title">
+      <div class="section-orb section-orb--violet" aria-hidden="true"></div>
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__visual" data-reveal>
+            <div class="about__image about__image--main" data-parallax="0.055">
+              <img src="assets/animotion/about-main.jpg" alt="Equipo creativo de Animotion Studio colaborando en una mesa de trabajo" width="1100" height="1200" loading="lazy" decoding="async" />
+              <span class="about__image-label"><i></i> ESTUDIO / 2026</span>
+            </div>
+            <div class="about__image about__image--detail" data-parallax="-0.075">
+              <img src="assets/animotion/about-detail.jpg" alt="Detalle de una escultura digital con iluminación violeta" width="650" height="650" loading="lazy" decoding="async" />
+              <span>PROCESO CREATIVO</span>
+            </div>
+            <div class="about__stamp" aria-hidden="true">
+              <svg viewBox="0 0 120 120">
+                <defs>
+                  <path id="stamp-path" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0" />
+                </defs>
+                <text><textPath href="#stamp-path">ANIMOTION STUDIO • SINCE 2014 • ANIMOTION STUDIO • </textPath></text>
+              </svg>
+              <span class="about__stamp-center">A</span>
+            </div>
+          </div>
+
+          <div class="about__content" data-reveal data-delay="120">
+            <p class="section-label"><span>01</span> Nosotros</p>
+            <h2 class="section-title" id="about-title">CREAMOS MUNDOS <span class="text-gradient">EXTRAORDINARIOS</span></h2>
+            <p class="about__lead">
+              Somos un colectivo de artistas, animadores e ingenieros de la imagen
+              obsesionados con una sola idea: que cada frame cuente una historia.
+            </p>
+            <p class="about__text">
+              Desde 2014 combinamos dibujo tradicional, pipeline 3D y diseño de movimiento
+              para dar forma a universos que respiran. Trabajamos con marcas, productoras
+              y narradores que no se conforman con lo evidente.
+            </p>
+
+            <ul class="about__values">
+              <li>
+                <span>01</span>
+                <div><strong>Historias con alma</strong><p>La técnica está al servicio de la emoción, nunca al revés.</p></div>
+              </li>
+              <li>
+                <span>02</span>
+                <div><strong>Artesanía digital</strong><p>Cada textura, luz y transición se construye con intención.</p></div>
+              </li>
+              <li>
+                <span>03</span>
+                <div><strong>Mirada futurista</strong><p>Exploramos nuevas herramientas sin perder el pulso humano.</p></div>
+              </li>
+            </ul>
+
+            <a class="text-link" href="#equipo">
+              Conoce al equipo
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bocetos: fotografías de Pexels (licencia de uso libre) -->
+        <div class="sketchbook" data-reveal>
+          <div class="sketchbook__intro">
+            <p class="section-label"><span>01.1</span> Sketchbook</p>
+            <h3 class="sketchbook__title">DEL BOCETO <span class="text-gradient">AL FRAME</span></h3>
+            <p class="sketchbook__copy">
+              Antes del render hay papel, grafito y decisiones. Exploramos expresiones,
+              secuencias y la personalidad de cada personaje hasta encontrar su pulso.
+            </p>
+            <div class="sketchbook__meta">
+              <span class="sketchbook__count">03</span>
+              <span>BOCETOS ORIGINALES<br />ARCHIVO / 2026</span>
+            </div>
+          </div>
+
+          <div class="sketchbook__gallery">
+            <figure class="sketch-card sketch-card--feature">
+              <div class="sketch-card__media">
+                <img src="assets/animotion/sketch-storyboard.jpg" alt="Manos dibujando una secuencia de storyboard con lápiz sobre papel" width="900" height="1350" loading="lazy" decoding="async" />
+              </div>
+              <span class="sketch-card__pin">01</span>
+              <figcaption class="sketch-card__caption">
+                <strong>Storyboard</strong>
+                <span>Secuencia / grafito</span>
+              </figcaption>
+            </figure>
+
+            <figure class="sketch-card">
+              <div class="sketch-card__media">
+                <img src="assets/animotion/sketch-expressions.jpg" alt="Hoja de expresiones de un personaje dibujada a lápiz sobre papel" width="900" height="596" loading="lazy" decoding="async" />
+              </div>
+              <span class="sketch-card__pin">02</span>
+              <figcaption class="sketch-card__caption">
+                <strong>Expression sheet</strong>
+                <span>Personaje / estudio</span>
+              </figcaption>
+            </figure>
+
+            <figure class="sketch-card">
+              <div class="sketch-card__media">
+                <img src="assets/animotion/sketch-character.jpg" alt="Boceto de personaje animado con lápices de color sobre papel" width="900" height="600" loading="lazy" decoding="async" />
+              </div>
+              <span class="sketch-card__pin">03</span>
+              <figcaption class="sketch-card__caption">
+                <strong>Character design</strong>
+                <span>Color / exploración</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="about__stats glass-panel" data-reveal>
+          <div class="big-stat"><strong><span data-count="12">0</span>+</strong><span>Años de estudio</span></div>
+          <div class="big-stat"><strong><span data-count="240">0</span>+</strong><span>Proyectos entregados</span></div>
+          <div class="big-stat"><strong><span data-count="32">0</span></strong><span>Países alcanzados</span></div>
+          <div class="big-stat"><strong><span data-count="18">0</span>+</strong><span>Reconocimientos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= SERVICIOS ========================= -->
+    <section class="section services" id="servicios" aria-labelledby="services-title">
+      <div class="section-orb section-orb--cyan" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div data-reveal>
+            <p class="section-label"><span>02</span> Servicios</p>
+            <h2 class="section-title" id="services-title">TODO LO QUE TU HISTORIA <span class="text-gradient">NECESITA</span></h2>
+          </div>
+          <p class="section-copy" data-reveal data-delay="100">
+            Del primer boceto al render final. Un equipo multidisciplinar, un pipeline
+            flexible y una dirección de arte que no negocia con lo genérico.
+          </p>
+        </div>
+
+        <div class="services__grid">
+          <article class="service-card" data-reveal data-delay="0">
+            <div class="service-card__media">
+              <img src="assets/animotion/service-2d.jpg" alt="Ilustración digital con textura pictórica para animación 2D" width="900" height="650" loading="lazy" decoding="async" />
+              <span class="service-card__index">01</span>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 5v14M16 5v14M4 12h16" /></svg>
+              </span>
+            </div>
+            <div class="service-card__body">
+              <h3>Animación 2D</h3>
+              <p>Frame a frame, cut-out y animación tradicional con un acabado artesanal y expresivo.</p>
+              <div class="service-card__footer">
+                <span>Frame by frame</span>
+                <a href="#contacto" aria-label="Consultar por animación 2D"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal data-delay="80">
+            <div class="service-card__media">
+              <img src="assets/animotion/service-3d.jpg" alt="Render abstracto 3D en azul y violeta" width="900" height="650" loading="lazy" decoding="async" />
+              <span class="service-card__index">02</span>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2.8 21 7.5v9L12 21.2 3 16.5v-9L12 2.8ZM3 7.5l9 4.7 9-4.7M12 12.2v9" /></svg>
+              </span>
+            </div>
+            <div class="service-card__body">
+              <h3>Animación 3D</h3>
+              <p>Modelado, rigging, iluminación y render cinematográfico para mundos de otra dimensión.</p>
+              <div class="service-card__footer">
+                <span>Worldbuilding</span>
+                <a href="#contacto" aria-label="Consultar por animación 3D"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal data-delay="160">
+            <div class="service-card__media">
+              <img src="assets/animotion/service-character.jpg" alt="Retrato de personaje con iluminación de neón" width="900" height="650" loading="lazy" decoding="async" />
+              <span class="service-card__index">03</span>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4.5 21c.6-4 3.3-6.5 7.5-6.5s6.9 2.5 7.5 6.5" /></svg>
+              </span>
+            </div>
+            <div class="service-card__body">
+              <h3>Diseño de personajes</h3>
+              <p>Identidad, silueta y personalidad. Personajes memorables listos para producir.</p>
+              <div class="service-card__footer">
+                <span>Character design</span>
+                <a href="#contacto" aria-label="Consultar por diseño de personajes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal data-delay="0">
+            <div class="service-card__media">
+              <img src="assets/animotion/service-motion.jpg" alt="Formas fluidas y luminosas para motion graphics" width="900" height="650" loading="lazy" decoding="async" />
+              <span class="service-card__index">04</span>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 17c3-8 5 4 8-3s5 4 10-5" /><circle cx="4" cy="18" r="1.5" /><circle cx="20" cy="8" r="1.5" /></svg>
+              </span>
+            </div>
+            <div class="service-card__body">
+              <h3>Motion Graphics</h3>
+              <p>Sistemas visuales en movimiento para marcas que quieren ser recordadas.</p>
+              <div class="service-card__footer">
+                <span>Brand in motion</span>
+                <a href="#contacto" aria-label="Consultar por motion graphics"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal data-delay="80">
+            <div class="service-card__media">
+              <img src="assets/animotion/service-vfx.jpg" alt="Ciudad nocturna con iluminación cinematográfica y efectos visuales" width="900" height="650" loading="lazy" decoding="async" />
+              <span class="service-card__index">05</span>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m12 2 2.1 6.3L20 10.5l-5.9 2.2L12 19l-2.1-6.3L4 10.5l5.9-2.2L12 2Z" /><path d="m19 16 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z" /></svg>
+              </span>
+            </div>
+            <div class="service-card__body">
+              <h3>Efectos visuales VFX</h3>
+              <p>Compositing, simulaciones y ambientes digitales que expanden la realidad.</p>
+              <div class="service-card__footer">
+                <span>Beyond reality</span>
+                <a href="#contacto" aria-label="Consultar por efectos visuales"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal data-delay="160">
+            <div class="service-card__media">
+              <img src="assets/animotion/service-illustration.jpg" alt="Artista digital ilustrando en su estudio" width="900" height="650" loading="lazy" decoding="async" />
+              <span class="service-card__index">06</span>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m4 20 4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z" /><path d="m14 7 3 3" /></svg>
+              </span>
+            </div>
+            <div class="service-card__body">
+              <h3>Ilustración digital</h3>
+              <p>Concept art, keyframes y arte final con una dirección visual inconfundible.</p>
+              <div class="service-card__footer">
+                <span>Art direction</span>
+                <a href="#contacto" aria-label="Consultar por ilustración digital"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= GALERÍA ========================= -->
+    <section class="section gallery" id="galeria" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div data-reveal>
+            <p class="section-label"><span>03</span> Galería</p>
+            <h2 class="section-title" id="gallery-title">UN VISTAZO A NUESTROS <span class="text-gradient">UNIVERSOS</span></h2>
+          </div>
+          <p class="section-copy" data-reveal data-delay="100">
+            Doce fragmentos de mundos que existieron primero en nuestra imaginación.
+            Haz clic para explorar cada pieza a pantalla completa.
+          </p>
+        </div>
+
+        <div class="gallery__grid">
+          <button class="gallery-item gallery-item--feature" type="button" data-gallery-index="0" aria-label="Ampliar Prisma Líquido">
+            <img src="assets/animotion/gallery-01.jpg" alt="Arte digital abstracto en azul cian con formas líquidas" width="1000" height="1000" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">3D RENDER</span>
+              <span class="gallery-item__title">Prisma Líquido</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="1" aria-label="Ampliar Ciudad de Neón">
+            <img src="assets/animotion/gallery-02.jpg" alt="Composición digital de una ciudad futurista en tonos azules" width="1000" height="1000" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">ENVIRONMENT</span>
+              <span class="gallery-item__title">Ciudad de Neón</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="2" aria-label="Ampliar Nueva Realidad">
+            <img src="assets/animotion/gallery-03.jpg" alt="Artista con visor de realidad virtual en un entorno violeta" width="1000" height="1000" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">VR EXPERIENCE</span>
+              <span class="gallery-item__title">Nueva Realidad</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="3" aria-label="Ampliar Materia Oscura">
+            <img src="assets/animotion/gallery-04.jpg" alt="Escultura digital abstracta de materia oscura" width="1000" height="1000" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">SCULPTING</span>
+              <span class="gallery-item__title">Materia Oscura</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="4" aria-label="Ampliar Jardín Sintético">
+            <img src="assets/animotion/gallery-05.jpg" alt="Composición 3D orgánica en tonos rosados y violetas" width="1000" height="1000" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">3D ART</span>
+              <span class="gallery-item__title">Jardín Sintético</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="5" aria-label="Ampliar Ecos de Violeta">
+            <img src="assets/animotion/gallery-06.jpg" alt="Formas digitales violetas con textura luminosa" width="1000" height="1000" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">MOTION</span>
+              <span class="gallery-item__title">Ecos de Violeta</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="6" aria-label="Ampliar Geometría Onírica">
+            <img src="assets/animotion/gallery-07.jpg" alt="Geometría abstracta tridimensional con luces suaves" width="1000" height="1000" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">ABSTRACT</span>
+              <span class="gallery-item__title">Geometría Onírica</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item gallery-item--wide" type="button" data-gallery-index="7" aria-label="Ampliar Horizonte Cero">
+            <img src="assets/animotion/gallery-08.jpg" alt="Paisaje abstracto de otro mundo con luz azul" width="1200" height="900" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">WORLDBUILDING</span>
+              <span class="gallery-item__title">Horizonte Cero</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item gallery-item--feature" type="button" data-gallery-index="8" aria-label="Ampliar Nébula 07">
+            <img src="assets/animotion/gallery-09.jpg" alt="Personaje envuelto en una nebulosa violeta" width="1000" height="1100" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">CHARACTER</span>
+              <span class="gallery-item__title">Nébula 07</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="9" aria-label="Ampliar Loop Infinito">
+            <img src="assets/animotion/gallery-10.jpg" alt="Escena de realidad virtual con iluminación inmersiva" width="1000" height="1000" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">IMMERSIVE</span>
+              <span class="gallery-item__title">Loop Infinito</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="10" aria-label="Ampliar Fragmentos">
+            <img src="assets/animotion/gallery-11.jpg" alt="Fragmentos de una escultura digital con iluminación cálida" width="1000" height="1000" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">PROCEDURAL</span>
+              <span class="gallery-item__title">Fragmentos</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+
+          <button class="gallery-item gallery-item--wide" type="button" data-gallery-index="11" aria-label="Ampliar Luz de Invierno">
+            <img src="assets/animotion/gallery-12.jpg" alt="Paisaje visual abstracto con luz invernal" width="1200" height="900" loading="lazy" decoding="async" />
+            <span class="gallery-item__overlay">
+              <span class="gallery-item__tag">VFX</span>
+              <span class="gallery-item__title">Luz de Invierno</span>
+              <span class="gallery-item__view">Ampliar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= VIDEOS ========================= -->
+    <section class="section videos" id="videos" aria-labelledby="videos-title">
+      <div class="section-orb section-orb--violet" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div data-reveal>
+            <p class="section-label"><span>04</span> Videos</p>
+            <h2 class="section-title" id="videos-title">HISTORIAS QUE <span class="text-gradient">SE MUEVEN</span></h2>
+          </div>
+          <p class="section-copy" data-reveal data-delay="100">
+            Una selección de cortometrajes que nos inspiran. Obras abiertas de
+            Blender Foundation, donde la animación se convierte en pura emoción.
+          </p>
+        </div>
+
+        <div class="videos__grid">
+          <article class="video-feature" data-video="aqz-KE-bpKQ" data-video-title="Big Buck Bunny" data-video-meta="Blender Open Movie · Animación 3D" data-reveal>
+            <div class="video-feature__media">
+              <img src="assets/animotion/video-01.jpg" alt="Miniatura del cortometraje Big Buck Bunny" width="1278" height="720" loading="lazy" decoding="async" />
+              <span class="video-feature__shade" aria-hidden="true"></span>
+              <button class="video-play video-play--large" type="button" aria-label="Reproducir Big Buck Bunny">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5-9-5.5Z" /></svg>
+              </button>
+              <span class="video-feature__badge"><i></i> FEATURED FILM</span>
+              <span class="video-feature__duration">10:34</span>
+            </div>
+            <div class="video-feature__body">
+              <div>
+                <span class="video-feature__eyebrow">SHOWREEL 2026 / OPEN MOVIE</span>
+                <h3>Big Buck Bunny</h3>
+                <p>Una explosión de color, ritmo y animación orgánica. La prueba de que la técnica también puede ser tierna.</p>
+              </div>
+              <button class="video-feature__action" type="button" aria-label="Ver ficha de Big Buck Bunny">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </button>
+            </div>
+          </article>
+
+          <div class="videos__list">
+            <button class="video-mini" type="button" data-video="eRsGyueVLvQ" data-video-title="Sintel" data-video-meta="Blender Open Movie · Animación 3D" data-reveal data-delay="60">
+              <span class="video-mini__media">
+                <img src="assets/animotion/video-02.jpg" alt="Miniatura del cortometraje Sintel" width="480" height="360" loading="lazy" decoding="async" />
+                <span class="video-mini__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5-9-5.5Z" /></svg></span>
+              </span>
+              <span class="video-mini__body">
+                <span class="video-mini__meta">02 · 14:48</span>
+                <strong>Sintel</strong>
+                <small>Fantasía / 3D</small>
+              </span>
+              <svg class="video-mini__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            </button>
+
+            <button class="video-mini" type="button" data-video="R6MlUcmOul8" data-video-title="Tears of Steel" data-video-meta="Blender VFX Open Movie · Ciencia ficción" data-reveal data-delay="120">
+              <span class="video-mini__media">
+                <img src="assets/animotion/video-03.jpg" alt="Miniatura del cortometraje Tears of Steel" width="1280" height="720" loading="lazy" decoding="async" />
+                <span class="video-mini__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5-9-5.5Z" /></svg></span>
+              </span>
+              <span class="video-mini__body">
+                <span class="video-mini__meta">03 · 12:14</span>
+                <strong>Tears of Steel</strong>
+                <small>VFX / Sci-fi</small>
+              </span>
+              <svg class="video-mini__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            </button>
+
+            <button class="video-mini" type="button" data-video="WhWc3b3KhnY" data-video-title="Spring" data-video-meta="Blender Studio · Animación 3D" data-reveal data-delay="180">
+              <span class="video-mini__media">
+                <img src="assets/animotion/video-04.jpg" alt="Miniatura del cortometraje Spring" width="1280" height="720" loading="lazy" decoding="async" />
+                <span class="video-mini__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5-9-5.5Z" /></svg></span>
+              </span>
+              <span class="video-mini__body">
+                <span class="video-mini__meta">04 · 07:44</span>
+                <strong>Spring</strong>
+                <small>Naturaleza / 3D</small>
+              </span>
+              <svg class="video-mini__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= PORTAFOLIO ========================= -->
+    <section class="section portfolio" id="portafolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="portfolio__head">
+          <div class="section-head" data-reveal>
+            <p class="section-label"><span>05</span> Portafolio</p>
+            <h2 class="section-title" id="portfolio-title">PROYECTOS <span class="text-gradient">DESTACADOS</span></h2>
+            <p class="section-copy">Una muestra de lo que ocurre cuando la estrategia, el arte y la tecnología se encuentran.</p>
+          </div>
+
+          <div class="filters" role="group" aria-label="Filtrar proyectos por categoría" data-reveal data-delay="100">
+            <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+            <button class="filter" type="button" data-filter="2d" aria-pressed="false">2D</button>
+            <button class="filter" type="button" data-filter="3d" aria-pressed="false">3D</button>
+            <button class="filter" type="button" data-filter="motion" aria-pressed="false">Motion Graphics</button>
+            <button class="filter" type="button" data-filter="personajes" aria-pressed="false">Personajes</button>
+          </div>
+        </div>
+
+        <div class="portfolio__grid" id="portfolio-grid">
+          <article class="project-card" data-category="3d" data-reveal>
+            <a class="project-card__media" href="#contacto" aria-label="Nébula 07 — 3D 2026. Hablar sobre un proyecto similar">
+              <img src="assets/animotion/portfolio-01.jpg" alt="Arte 3D abstracto en azul eléctrico" width="1100" height="800" loading="lazy" decoding="async" />
+              <span class="project-card__shade" aria-hidden="true"></span>
+              <span class="project-card__tag">3D</span>
+              <span class="project-card__year">2026</span>
+              <span class="project-card__open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </a>
+            <div class="project-card__body">
+              <span class="project-card__cat">3D / WORLDBUILDING</span>
+              <h3>Nébula 07</h3>
+              <p>Un sistema visual procedural para una experiencia musical inmersiva.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="2d" data-reveal data-delay="70">
+            <a class="project-card__media" href="#contacto" aria-label="Raíces de Papel — 2D 2025. Hablar sobre un proyecto similar">
+              <img src="assets/animotion/portfolio-02.jpg" alt="Composición visual con estética retro para animación 2D" width="1100" height="800" loading="lazy" decoding="async" />
+              <span class="project-card__shade" aria-hidden="true"></span>
+              <span class="project-card__tag">2D</span>
+              <span class="project-card__year">2025</span>
+              <span class="project-card__open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </a>
+            <div class="project-card__body">
+              <span class="project-card__cat">2D / SHORT FILM</span>
+              <h3>Raíces de Papel</h3>
+              <p>Animación tradicional sobre memoria, territorio y pertenencia.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="motion" data-reveal data-delay="140">
+            <a class="project-card__media" href="#contacto" aria-label="Prisma — MOTION 2026. Hablar sobre un proyecto similar">
+              <img src="assets/animotion/portfolio-03.jpg" alt="Textura digital luminosa para un proyecto de motion graphics" width="1100" height="800" loading="lazy" decoding="async" />
+              <span class="project-card__shade" aria-hidden="true"></span>
+              <span class="project-card__tag">MOTION</span>
+              <span class="project-card__year">2026</span>
+              <span class="project-card__open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </a>
+            <div class="project-card__body">
+              <span class="project-card__cat">MOTION / BRANDING</span>
+              <h3>Prisma</h3>
+              <p>Identidad en movimiento para una plataforma de arte generativo.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="personajes" data-reveal>
+            <a class="project-card__media" href="#contacto" aria-label="Kira Unit 09 — PERSONAJES 2025. Hablar sobre un proyecto similar">
+              <img src="assets/animotion/portfolio-04.jpg" alt="Retrato de personaje con iluminación urbana y neón" width="1100" height="800" loading="lazy" decoding="async" />
+              <span class="project-card__shade" aria-hidden="true"></span>
+              <span class="project-card__tag">PERSONAJES</span>
+              <span class="project-card__year">2025</span>
+              <span class="project-card__open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </a>
+            <div class="project-card__body">
+              <span class="project-card__cat">CHARACTER / GAME</span>
+              <h3>KIRA // Unit 09</h3>
+              <p>Diseño de personaje y hoja de expresión para un videojuego indie.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="3d" data-reveal data-delay="70">
+            <a class="project-card__media" href="#contacto" aria-label="Eco Sintético — 3D 2024. Hablar sobre un proyecto similar">
+              <img src="assets/animotion/portfolio-05.jpg" alt="Escena 3D oscura con detalles tecnológicos" width="1100" height="800" loading="lazy" decoding="async" />
+              <span class="project-card__shade" aria-hidden="true"></span>
+              <span class="project-card__tag">3D</span>
+              <span class="project-card__year">2024</span>
+              <span class="project-card__open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </a>
+            <div class="project-card__body">
+              <span class="project-card__cat">3D / PRODUCT</span>
+              <h3>Eco Sintético</h3>
+              <p>Producto ficticio, iluminación cinematográfica y narrativa de marca.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="motion" data-reveal data-delay="140">
+            <a class="project-card__media" href="#contacto" aria-label="Líneas de Luz — MOTION 2024. Hablar sobre un proyecto similar">
+              <img src="assets/animotion/portfolio-06.jpg" alt="Luces y líneas de neón para un proyecto audiovisual" width="1100" height="800" loading="lazy" decoding="async" />
+              <span class="project-card__shade" aria-hidden="true"></span>
+              <span class="project-card__tag">MOTION</span>
+              <span class="project-card__year">2024</span>
+              <span class="project-card__open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </a>
+            <div class="project-card__body">
+              <span class="project-card__cat">MOTION / LIVE VISUALS</span>
+              <h3>Líneas de Luz</h3>
+              <p>Visuales generativos en tiempo real para una gira de música electrónica.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= EQUIPO ========================= -->
+    <section class="section team" id="equipo" aria-labelledby="team-title">
+      <div class="section-orb section-orb--cyan" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div data-reveal>
+            <p class="section-label"><span>06</span> Equipo creativo</p>
+            <h2 class="section-title" id="team-title">LAS MENTES DETRÁS <span class="text-gradient">DEL MOVIMIENTO</span></h2>
+          </div>
+          <p class="section-copy" data-reveal data-delay="100">
+            Un equipo pequeño, obsesivo y multidisciplinar. Cada proyecto es una
+            colaboración cercana con las personas que le dan vida.
+          </p>
+        </div>
+
+        <div class="team__grid">
+          <article class="team-card" data-reveal>
+            <div class="team-card__media">
+              <img src="assets/animotion/team-01.jpg" alt="Retrato de Valeria Nox, directora creativa" width="700" height="900" loading="lazy" decoding="async" />
+              <span class="team-card__num">01</span>
+              <div class="team-card__socials">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Valeria Nox"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" /></svg></a>
+                <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" aria-label="Behance de Valeria Nox"><span>Bē</span></a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Valeria Nox"><span>in</span></a>
+              </div>
+            </div>
+            <div class="team-card__body"><h3>Valeria Nox</h3><p>Directora creativa</p></div>
+          </article>
+
+          <article class="team-card" data-reveal data-delay="70">
+            <div class="team-card__media">
+              <img src="assets/animotion/team-02.jpg" alt="Retrato de Mateo Ríos, artista 3D principal" width="700" height="900" loading="lazy" decoding="async" />
+              <span class="team-card__num">02</span>
+              <div class="team-card__socials">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Mateo Ríos"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" /></svg></a>
+                <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" aria-label="Behance de Mateo Ríos"><span>Bē</span></a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Mateo Ríos"><span>in</span></a>
+              </div>
+            </div>
+            <div class="team-card__body"><h3>Mateo Ríos</h3><p>Lead 3D artist</p></div>
+          </article>
+
+          <article class="team-card" data-reveal data-delay="140">
+            <div class="team-card__media">
+              <img src="assets/animotion/team-03.jpg" alt="Retrato de Sasha Kim, diseñadora de personajes" width="700" height="900" loading="lazy" decoding="async" />
+              <span class="team-card__num">03</span>
+              <div class="team-card__socials">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Sasha Kim"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" /></svg></a>
+                <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" aria-label="Behance de Sasha Kim"><span>Bē</span></a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Sasha Kim"><span>in</span></a>
+              </div>
+            </div>
+            <div class="team-card__body"><h3>Sasha Kim</h3><p>Character designer</p></div>
+          </article>
+
+          <article class="team-card" data-reveal data-delay="210">
+            <div class="team-card__media">
+              <img src="assets/animotion/team-04.jpg" alt="Retrato de Leo Valdés, director de motion" width="700" height="900" loading="lazy" decoding="async" />
+              <span class="team-card__num">04</span>
+              <div class="team-card__socials">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Leo Valdés"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" /></svg></a>
+                <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" aria-label="Behance de Leo Valdés"><span>Bē</span></a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Leo Valdés"><span>in</span></a>
+              </div>
+            </div>
+            <div class="team-card__body"><h3>Leo Valdés</h3><p>Motion director</p></div>
+          </article>
+        </div>
+
+        <blockquote class="team-quote" data-reveal>
+          <span class="team-quote__mark" aria-hidden="true">“</span>
+          <p>La animación no se ve. Se siente.</p>
+          <footer>— Filosofía Animotion</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ========================= BLOG ========================= -->
+    <section class="section blog" id="blog" aria-labelledby="blog-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div data-reveal>
+            <p class="section-label"><span>07</span> Blog</p>
+            <h2 class="section-title" id="blog-title">NOTAS DESDE <span class="text-gradient">EL ESTUDIO</span></h2>
+          </div>
+          <p class="section-copy" data-reveal data-delay="100">
+            Ideas, procesos y obsesiones sobre animación, diseño y la extraña
+            belleza de dar vida a cosas que no existen.
+          </p>
+        </div>
+
+        <div class="blog__grid">
+          <article class="blog-card" data-reveal>
+            <div class="blog-card__media">
+              <img src="assets/animotion/blog-01.jpg" alt="Equipo de cine trabajando en una producción audiovisual" width="900" height="600" loading="lazy" decoding="async" />
+              <span class="blog-card__tag">ANIMACIÓN</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span>12 OCT 2026</span><span>6 MIN</span></div>
+              <h3>La animación que respira: el arte invisible del timing</h3>
+              <p>Por qué un frame de más puede arruinar una emoción y cómo entrenar el ojo para sentirlo.</p>
+              <button class="read-more" type="button" data-article="timing">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></button>
+            </div>
+          </article>
+
+          <article class="blog-card" data-reveal data-delay="70">
+            <div class="blog-card__media">
+              <img src="assets/animotion/blog-02.jpg" alt="Mesa de trabajo de un diseñador con bocetos y herramientas" width="900" height="600" loading="lazy" decoding="async" />
+              <span class="blog-card__tag">PERSONAJES</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span>28 SEP 2026</span><span>5 MIN</span></div>
+              <h3>Del boceto al alma: cómo nace un personaje memorable</h3>
+              <p>Silueta, contraste y contradicción. Las decisiones que hacen que un diseño tenga pulso.</p>
+              <button class="read-more" type="button" data-article="personaje">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></button>
+            </div>
+          </article>
+
+          <article class="blog-card" data-reveal data-delay="140">
+            <div class="blog-card__media">
+              <img src="assets/animotion/blog-03.jpg" alt="Composición 3D con iluminación de estudio" width="900" height="600" loading="lazy" decoding="async" />
+              <span class="blog-card__tag">TÉCNICA 3D</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span>09 SEP 2026</span><span>8 MIN</span></div>
+              <h3>Luz cinematográfica en 3D: menos lámparas, más intención</h3>
+              <p>Un recorrido práctico por la iluminación que cuenta historias sin decir una palabra.</p>
+              <button class="read-more" type="button" data-article="iluminacion">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></button>
+            </div>
+          </article>
+
+          <article class="blog-card" data-reveal data-delay="210">
+            <div class="blog-card__media">
+              <img src="assets/animotion/blog-04.jpg" alt="Pantallas con interfaces y sistemas de diseño en movimiento" width="900" height="600" loading="lazy" decoding="async" />
+              <span class="blog-card__tag">MOTION</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span>22 AGO 2026</span><span>4 MIN</span></div>
+              <h3>Motion graphics: ritmo visual para marcas que se mueven</h3>
+              <p>Cómo traducir una identidad estática a un sistema que respira en todos los formatos.</p>
+              <button class="read-more" type="button" data-article="motion">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= CONTACTO ========================= -->
+    <section class="section contact" id="contacto" aria-labelledby="contact-title">
+      <div class="section-orb section-orb--violet" aria-hidden="true"></div>
+      <div class="container contact__grid">
+        <div class="contact__intro" data-reveal>
+          <p class="section-label"><span>08</span> Contacto</p>
+          <h2 class="section-title" id="contact-title">¿TIENES UNA HISTORIA <span class="text-gradient">EN MENTE?</span></h2>
+          <p class="contact__lead">
+            Cuéntanos qué quieres hacer sentir. Respondemos en menos de 48 horas
+            con preguntas, ideas y el primer paso para hacerlo realidad.
+          </p>
+
+          <div class="contact__details">
+            <a class="contact-detail" href="mailto:hola@animotion.studio">
+              <span class="contact-detail__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" /><path d="m4 7 8 6 8-6" /></svg></span>
+              <span><small>Escríbenos</small><strong>hola@animotion.studio</strong></span>
+            </a>
+            <div class="contact-detail">
+              <span class="contact-detail__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.5 7-12a7 7 0 1 0-14 0c0 6.5 7 12 7 12Z" /><circle cx="12" cy="9" r="2.4" /></svg></span>
+              <span><small>Estudio</small><strong>San Salvador · Trabajo remoto global</strong></span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" /></svg></span>
+              <span><small>Disponibilidad</small><strong>Abiertos a proyectos · Q1 2027</strong></span>
+            </div>
+          </div>
+
+          <div class="contact__socials" aria-label="Redes sociales de Animotion Studio">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" /></svg></a>
+            <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" aria-label="Bē Behance"><span>Bē</span></a>
+            <a href="https://vimeo.com/" target="_blank" rel="noopener noreferrer" aria-label="Vimeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5c1.8-1.8 3.2-1.2 4.2.8.7 1.5 1.5 3.8 2.3 4.7.9 1 1.7-.3 2.5-2.4.8-2.1 1.2-4.3-.1-4.6-1.1-.2-2 .7-2.5 1.4.7-3 2.7-4.6 5.3-4.2 3 .5 2.7 4.1 1.5 7.3-1.3 3.5-3.3 7-5.8 7-2 0-3-1.8-4.1-4.4-.8-1.9-1.5-3.4-2.4-4.3-.5-.6-.7-.8-.9-1.3Z" /></svg></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span>in</span></a>
+          </div>
+
+          <div class="contact__note">
+            <span class="contact__note-dot"></span>
+            <span>Actualmente aceptando proyectos para 2027</span>
+          </div>
+        </div>
+
+        <div class="contact__form-wrap" data-reveal data-delay="120">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="contact-form__header">
+              <span class="contact-form__step">PROYECTO / 001</span>
+              <span class="contact-form__status" id="form-indicator"><i></i> FORMULARIO SEGURO</span>
+            </div>
+
+            <div class="contact-form__row">
+              <div class="field">
+                <label for="contact-name">Nombre <span>*</span></label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Tu nombre" aria-describedby="error-name" />
+                <p class="field__error" id="error-name" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="contact-email">Correo electrónico <span>*</span></label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="tu@correo.com" aria-describedby="error-email" />
+                <p class="field__error" id="error-email" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="contact-subject">Asunto <span>*</span></label>
+              <input id="contact-subject" name="subject" type="text" maxlength="120" placeholder="¿Qué historia quieres contar?" aria-describedby="error-subject" />
+              <p class="field__error" id="error-subject" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="contact-message">Mensaje <span>*</span></label>
+              <textarea id="contact-message" name="message" rows="5" maxlength="600" placeholder="Cuéntanos sobre tu proyecto, plazos y referencias…" aria-describedby="error-message"></textarea>
+              <div class="field__footer">
+                <p class="field__error" id="error-message" aria-live="polite"></p>
+                <span class="field__counter" id="message-counter">0 / 600</span>
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full contact-form__submit" type="submit" id="contact-submit">
+              <span>Enviar mensaje</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 12 16-8-5.5 16L11 13l-7-1Z" /><path d="m11 13 9-9" /></svg>
+            </button>
+
+            <p class="contact-form__privacy">
+              Al enviar aceptas que tratemos tus datos para responder a tu consulta.
+              Este formulario está preparado para conectarse a un backend seguro.
+            </p>
+
+            <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================= FOOTER ========================= -->
+  <footer class="site-footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <a class="brand brand--footer" href="#inicio">
+          <svg class="brand__mark" viewBox="0 0 52 52" aria-hidden="true">
+            <defs>
+              <linearGradient id="footer-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#00FFFF" />
+                <stop offset=".52" stop-color="#00BFFF" />
+                <stop offset="1" stop-color="#BF00FF" />
+              </linearGradient>
+            </defs>
+            <path d="M26 3 49 45H38L26 23 14 45H3L26 3Z" fill="url(#footer-grad)" />
+            <circle cx="26" cy="36" r="4.5" fill="none" stroke="url(#footer-grad)" stroke-width="2" />
+          </svg>
+          <span class="brand__text"><strong>ANIMOTION</strong><small>STUDIO</small></span>
+        </a>
+        <p>Un estudio de animación independiente que convierte ideas imposibles en imágenes que se sienten.</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" /></svg></a>
+          <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" aria-label="Bē Behance"><span>Bē</span></a>
+          <a href="https://vimeo.com/" target="_blank" rel="noopener noreferrer" aria-label="Vimeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5c1.8-1.8 3.2-1.2 4.2.8.7 1.5 1.5 3.8 2.3 4.7.9 1 1.7-.3 2.5-2.4.8-2.1 1.2-4.3-.1-4.6-1.1-.2-2 .7-2.5 1.4.7-3 2.7-4.6 5.3-4.2 3 .5 2.7 4.1 1.5 7.3-1.3 3.5-3.3 7-5.8 7-2 0-3-1.8-4.1-4.4-.8-1.9-1.5-3.4-2.4-4.3-.5-.6-.7-.8-.9-1.3Z" /></svg></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span>in</span></a>
+        </div>
+      </div>
+
+      <div class="footer__column">
+        <h3>Navegación</h3>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#videos">Videos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__column">
+        <h3>Explora</h3>
+        <ul>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#inicio">Volver arriba</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__column footer__contact">
+        <h3>Hablemos</h3>
+        <a class="footer__email" href="mailto:hola@animotion.studio">hola@animotion.studio</a>
+        <p>San Salvador · El Salvador<br />Proyectos remotos en todo el mundo.</p>
+        <span class="footer__availability"><i></i> Disponibles para nuevos proyectos</span>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> Animotion Studio. Todos los derechos reservados.</p>
+      <p class="footer__credit">Imágenes: <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a> · Videos: <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer">Blender Foundation</a></p>
+      <p>Diseñado con obsesión por el detalle.</p>
+    </div>
+    <div class="footer__glow" aria-hidden="true"></div>
+  </footer>
+
+  <!-- ========================= VOLVER ARRIBA ========================= -->
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Volver arriba">
+    <svg class="back-to-top__ring" viewBox="0 0 52 52" aria-hidden="true">
+      <circle class="back-to-top__track" cx="26" cy="26" r="24" />
+      <circle class="back-to-top__progress" cx="26" cy="26" r="24" />
+    </svg>
+    <svg class="back-to-top__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4M6 10l6-6 6 6" /></svg>
+  </button>
+
+  <!-- ========================= MODAL GALERÍA ========================= -->
+  <div class="modal lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-describedby="lightbox-category" hidden>
+    <div class="modal__backdrop" data-close-lightbox></div>
+    <div class="lightbox__dialog">
+      <button class="modal__close" type="button" data-close-lightbox aria-label="Cerrar visor de imágenes">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <div class="lightbox__media">
+        <img id="lightbox-image" alt="" />
+      </div>
+      <div class="lightbox__footer">
+        <div>
+          <span class="lightbox__category" id="lightbox-category"></span>
+          <h3 class="lightbox__title" id="lightbox-title"></h3>
+        </div>
+        <div class="lightbox__controls">
+          <span class="lightbox__count" id="lightbox-count"></span>
+          <button class="lightbox__nav" type="button" id="lightbox-prev" aria-label="Imagen anterior">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+          <button class="lightbox__nav" type="button" id="lightbox-next" aria-label="Imagen siguiente">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= MODAL VIDEO ========================= -->
+  <div class="modal video-modal" id="video-modal" role="dialog" aria-modal="true" aria-labelledby="video-modal-title" hidden>
+    <div class="modal__backdrop" data-close-video></div>
+    <div class="video-modal__dialog">
+      <button class="modal__close" type="button" data-close-video aria-label="Cerrar reproductor de video">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <div class="video-modal__frame" id="video-frame"></div>
+      <div class="video-modal__footer">
+        <div>
+          <span class="video-modal__eyebrow">AHORA REPRODUCIENDO</span>
+          <h3 id="video-modal-title">Video</h3>
+          <p id="video-modal-meta"></p>
+        </div>
+        <a class="text-link" id="video-youtube-link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+          Ver en YouTube
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= MODAL ARTÍCULO ========================= -->
+  <div class="modal article-modal" id="article-modal" role="dialog" aria-modal="true" aria-labelledby="article-modal-title" hidden>
+    <div class="modal__backdrop" data-close-article></div>
+    <div class="article-modal__dialog">
+      <button class="modal__close" type="button" data-close-article aria-label="Cerrar artículo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <div class="article-modal__hero">
+        <img id="article-modal-image" alt="" />
+        <span class="article-modal__tag" id="article-modal-tag"></span>
+      </div>
+      <div class="article-modal__content">
+        <div class="article-modal__meta" id="article-modal-meta"></div>
+        <h3 class="article-modal__title" id="article-modal-title"></h3>
+        <div class="article-modal__body" id="article-modal-body"></div>
+        <button class="btn btn--ghost btn--small" type="button" data-close-article>Cerrar artículo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
